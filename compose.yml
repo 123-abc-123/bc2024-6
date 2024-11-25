@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  notes-app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./cache:/app/cache
+    environment:
+      - NODE_ENV=production
+    restart: always
+    command: >
+      sh -c "echo '[]' > /app/cache && node index.js -h 0.0.0.0 -p 3000 -c /app/cache"
