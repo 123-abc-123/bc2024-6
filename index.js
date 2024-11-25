@@ -65,7 +65,8 @@ app.get("/notes/:name", (req, res) => {
   // const storage = multer.memoryStorage();
   // const upload = multer({ storage: storage });
   const noteName = req.params.name;
-  
+  // console.log('name')
+
   if (notes[noteName]) {
     // res.status(200).json({ text: notes[noteName].note });
     res.status(200).send(notes[noteName].note);

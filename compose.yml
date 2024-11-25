@@ -6,9 +6,13 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      - .:/app           
+      # - /app/node_modules 
       - ./cache:/app/cache
     environment:
-      - NODE_ENV=production
-    restart: always
-    command: >
-      sh -c "echo '[]' > /app/cache && node index.js -h 0.0.0.0 -p 3000 -c /app/cache"
+      - NODE_ENV=delevopment
+    command: npm start
+    # command: nodemon index.js -- -h 0.0.0.0 -p 3000 -c ./cache
+    # restart: always
+    # command: >
+    #   sh -c "echo '[]' > /app/cache && node index.js -h 0.0.0.0 -p 3000 -c /app/cache"
